@@ -12,14 +12,20 @@
     "@headlessui/vue": "^1.7.18",
     "@heroicons/vue": "^2.1.1",
     "@vue-hero-icons/solid": "^1.7.2",
+    "eslint-config-airbnb": "^19.0.4",
     "flowbite": "^2.2.1",
     "flowbite-vue": "^0.1.2",
-    "vue": "^3.3.11"
+    "vue": "^3.3.11",
+    "vue-router": "4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.5.2",
     "autoprefixer": "^10.4.17",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-vue": "^9.21.1",
     "postcss": "^8.4.33",
+    "prettier": "^3.2.4",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.2.2",
     "vite": "^5.0.8",
