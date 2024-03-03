@@ -1,19 +1,21 @@
 <template>
-  <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-    <div class="box mt-10 p-5 col-span-5">
+  <div class="grid grid-cols-1 lg:grid-cols-12 px-4 gap-10 mt-12">
+    <div class="box p-5 col-span-12 lg:col-span-6">
       <div class="grid grid-cols-2">
         <div class="flex gap-2 flex-col">
           <slot name="buttons"></slot>
         </div>
-        <slot name="inputelements"></slot>
+        <div class="flex gap-2 flex-col">
+          <slot name="settings"></slot>
+        </div>
       </div>
     </div>
 
-    <div class="box mt-10 p-3 col-span-7">
+    <div class="box col-span-12 lg:col-span-6">
       <slot name="info"></slot>
     </div>
 
-    <div class="box col-start-6 col-end-13">
+    <div class="box col-span-12 lg:col-start-4 lg:col-end-10">
       <slot name="messagesequence"></slot>
     </div>
   </div>

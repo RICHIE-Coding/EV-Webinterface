@@ -9,12 +9,18 @@
         <Renegotiation />
         <Unplug />
       </template>
-      <template v-slot:inputelements>
+      <template v-slot:settings>
+        <TCPTLSSelection />
+        <ISO15118BasicChargingSelection />
+        <SetPauseState />
+        <ChargingWithoutContract />
         <InputForm />
       </template>
 
       <template v-slot:info>
-        <div>sas</div>
+        <div class="text-white text-xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa omnis tempora quis
+          perspiciatis ducimus corporis officia? Dolorum iusto error porro necessitatibus, voluptatum pariatur quaerat,
+          sapiente impedit odio unde molestias est.</div>
       </template>
 
       <template v-slot:messagesequence>
@@ -32,6 +38,10 @@ import ResumeCharging from "../components/Buttons/ResumeCharging.vue";
 import Renegotiation from "../components/Buttons/Renegotiation.vue";
 import Unplug from "../components/Buttons/Unplug.vue";
 import InputForm from "../components/InputForm.vue";
+import TCPTLSSelection from "../components/RadioButtons/TCPTLSSelection.vue"
+import ISO15118BasicChargingSelection from "../components/RadioButtons/ISO15118BasicChargingSelection.vue"
+import ChargingWithoutContract from "../components/Checkbox/ChargingWithoutContract.vue"
+import SetPauseState from "../components/Checkbox/SetPauseState.vue"
 import Grid from "../components/Grid.vue";
 </script>
 
