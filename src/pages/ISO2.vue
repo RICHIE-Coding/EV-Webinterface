@@ -24,7 +24,7 @@
       </template>
 
       <template v-slot:messagesequence>
-        <div class="text-center text-white text-4xl my-4">AC-Messagesequence</div>
+        <ISO2MessageSequence />
       </template>
     </Grid>
   </div>
@@ -43,6 +43,7 @@ import ISO15118BasicChargingSelection from "../components/RadioButtons/ISO15118B
 import ChargingWithoutContract from "../components/Checkbox/ChargingWithoutContract.vue"
 import SetPauseState from "../components/Checkbox/SetPauseState.vue"
 import Grid from "../components/Grid.vue";
+import ISO2MessageSequence from "../components/MessageSequences/ISO2Messagesequence.vue"
 </script>
 
 <style scoped></style>
