@@ -2,6 +2,7 @@
   <div class="container">
     <Grid>
       <template v-slot:buttons>
+
         <Button title="Plug-In" buttonColor="green" />
         <Button title="Stop-Charging" buttonColor="red" />
         <Button title="Pause-Charging" buttonColor="purple" />
@@ -14,7 +15,10 @@
         <RadioButton title1="ISO 15118" title2="Basic Charging" radioGroupName="ISOBasic" />
         <Checkbox title="Charging without Contract" />
         <Checkbox title="Set Pausestate after PlugIn" />
-        <InputForm />
+        <InputField title="eAmount" />
+        <InputField title="evMaxVoltage" />
+        <InputField title="evMaxCurrent" />
+        <InputField title="evMinCurrent" />
       </template>
 
       <template v-slot:info>
@@ -36,7 +40,7 @@
 <script setup lang="ts">
 import RadioButton from "../components/RadioButton.vue"
 import Button from "../components/Button.vue";
-import InputForm from "../components/InputForm.vue";
+import InputField from "../components/InputField.vue";
 import Checkbox from "../components/Checkbox.vue"
 import Grid from "../components/Grid.vue";
 import ISO2MessageSequence from "../components/MessageSequences/ISO2Messagesequence.vue";
