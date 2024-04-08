@@ -2,12 +2,12 @@
   <div class="container">
     <Grid>
       <template v-slot:buttons>
-        <PLugIn />
-        <Stop />
-        <PauseCharging />
-        <ResumeCharging />
-        <Renegotiation />
-        <Unplug />
+        <Button title="Plug-In" buttonColor="green" />
+        <Button title="Stop-Charging" buttonColor="red" />
+        <Button title="Pause-Charging" buttonColor="purple" />
+        <Button title="Resume-Charging" buttonColor="yellow" />
+        <Button title="Renegotiation" buttonColor="blue" />
+        <Button title="Unplug-Car" buttonColor="gray" />
       </template>
       <template v-slot:settings>
         <TCPTLSSelection />
@@ -31,12 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import PLugIn from "../components/Buttons/PlugIn.vue";
-import Stop from "../components/Buttons/Stop.vue";
-import PauseCharging from "../components/Buttons/PauseCharging.vue";
-import ResumeCharging from "../components/Buttons/ResumeCharging.vue";
-import Renegotiation from "../components/Buttons/Renegotiation.vue";
-import Unplug from "../components/Buttons/Unplug.vue";
+import Button from "../components/Button.vue"
 import InputForm from "../components/InputForm.vue";
 import TCPTLSSelection from "../components/RadioButtons/TCPTLSSelection.vue"
 import ISO15118BasicChargingSelection from "../components/RadioButtons/ISO15118BasicChargingSelection.vue"

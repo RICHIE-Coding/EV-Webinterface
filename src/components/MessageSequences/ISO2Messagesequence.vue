@@ -1,7 +1,7 @@
 <template>
   <div class="text-center text-white text-4xl my-4">AC-Messagesequence</div>
   <div class="text-white" v-for="message in messages" :key="message.name">
-    <div :class="getMessageColorClass(message.state)" class="text-white text-center mb-3 p-3 w-1/2 mx-auto">
+    <div :class="getMessageColorClass(message.state)" class="text-white text-center mb-3 p-3 w-3/5 mx-auto">
       {{ message.name }}
     </div>
   </div>
@@ -10,6 +10,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { Message, MessageState, MessageNameISO2 } from '../../models/MessageState';
+var age: number = 32;
+
+console.log(age)
+
 
 const messages = ref<Message[]>([
   { name: MessageNameISO2.SLAC, state: MessageState.UNKNOWN },

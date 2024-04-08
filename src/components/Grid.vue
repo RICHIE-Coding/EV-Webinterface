@@ -1,6 +1,6 @@
 <template>
-  <div class="grid grid-cols-1 lg:grid-cols-12 px-4 gap-12 mt-12">
-    <div class="box p-5 col-span-12 lg:col-span-6">
+  <div class="grid grid-rows-3  grid-cols-1 lg:grid-cols-12 px-4 gap-12 mt-12">
+    <div class="box p-5 col-span-12 row-span-1 lg:col-span-6">
       <div class="grid grid-cols-2">
         <div class="flex gap-2 flex-col">
           <slot name="buttons"></slot>
@@ -11,7 +11,7 @@
       </div>
     </div>
 
-    <div class="box col-span-12  lg:col-span-6">
+    <div class="box col-span-12 lg:col-span-6">
       <slot name="info"></slot>
     </div>
 
