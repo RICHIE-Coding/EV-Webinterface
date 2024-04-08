@@ -10,10 +10,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { Message, MessageState, MessageNameISO2 } from '../../models/MessageState';
-var age: number = 32;
-
-console.log(age)
-
 
 const messages = ref<Message[]>([
   { name: MessageNameISO2.SLAC, state: MessageState.UNKNOWN },
@@ -33,16 +29,14 @@ const messages = ref<Message[]>([
   { name: MessageNameISO2.SESSION_STOP, state: MessageState.UNKNOWN },
 ]);
 
-const getMessageColorClass = (state: MessageState) => {
-  switch (state) {
-    case MessageState.SUCCESS:
-      return 'bg-green-700';
-    case MessageState.PROGRESS:
-      return 'bg-yellow-700';
-    case MessageState.FAILED:
-      return 'bg-red-700';
-    default:
-      return 'bg-slate-600';
-  }
+const getMessageColorClass = (state: MessageState): string => {
+  const colorMap: Record<MessageState, string> = {
+    [MessageState.SUCCESS]: 'bg-green-700',
+    [MessageState.PROGRESS]: 'bg-yellow-400',
+    [MessageState.FAILED]: 'bg-red-700',
+    [MessageState.UNKNOWN]: 'bg-slate-600',
+  };
+
+  return colorMap[state];
 };
 </script>

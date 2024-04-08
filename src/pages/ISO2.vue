@@ -10,10 +10,10 @@
         <Button title="Unplug-Car" buttonColor="gray" />
       </template>
       <template v-slot:settings>
-        <RadioButton title1="TCP" title2="TLS" />
-        <RadioButton title1="ISO 15118" title2="Basic Charging" />
-        <SetPauseState />
-        <ChargingWithoutContract />
+        <RadioButton title1="TCP" title2="TLS" radioGroupName="TCPTLS" />
+        <RadioButton title1="ISO 15118" title2="Basic Charging" radioGroupName="ISOBasic" />
+        <Checkbox title="Charging without Contract" />
+        <Checkbox title="Set Pausestate after PlugIn" />
         <InputForm />
       </template>
 
@@ -37,8 +37,7 @@
 import RadioButton from "../components/RadioButton.vue"
 import Button from "../components/Button.vue";
 import InputForm from "../components/InputForm.vue";
-import ChargingWithoutContract from "../components/Checkbox/ChargingWithoutContract.vue";
-import SetPauseState from "../components/Checkbox/SetPauseState.vue";
+import Checkbox from "../components/Checkbox.vue"
 import Grid from "../components/Grid.vue";
 import ISO2MessageSequence from "../components/MessageSequences/ISO2Messagesequence.vue";
 </script>
