@@ -43,7 +43,7 @@ import Button from "../components/Button.vue";
 import InputField from "../components/InputField.vue";
 import Checkbox from "../components/Checkbox.vue"
 import Grid from "../components/Grid.vue";
-import ISO2MessageSequence from "../components/MessageSequences/ISO2Messagesequence.vue";
+import ISO2MessageSequence from "../components/ISO2Messagesequence.vue";
 import { MessageTypesISO2 } from "../models/ISO15118Messages";
 </script>
 

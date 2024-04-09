@@ -3,7 +3,7 @@
     <div class="text-center text-white text-4xl my-4">AC-Messagesequence</div>
     <div class="text-white" v-for="(message, index) in messages" :key="index">
       <div :class="getMessageColorClass(message.state)" class="text-white text-center mb-3 p-3 w-3/5 mx-auto">
-        {{ message.name.value }}
+        {{ message.key.value }}
       </div>
     </div>
   </div>
@@ -11,7 +11,7 @@
 
 <script setup lang="ts">
 import { ref, watchEffect } from 'vue';
-import { Message, MessageState, MessageTypeISO2, MessageTypeISO20 } from '../../models/ISO15118Messages';
+import { Message, MessageState, MessageTypeISO2, MessageTypeISO20 } from '../models/ISO15118Messages';
 
 const props = defineProps<{
   messagetype: MessageTypeISO2 | MessageTypeISO20;
@@ -20,7 +20,7 @@ const messagesMap = new Map<string, Message>();
 
 for (const [key, value] of Object.entries(props.messagetype)) {
   const message: Message = {
-    name: { key, value },
+    key: { value },
     state: MessageState.UNKNOWN,
   };
   messagesMap.set(key, message);
@@ -28,6 +28,7 @@ for (const [key, value] of Object.entries(props.messagetype)) {
 
 
 const messages = ref<Message[]>(Array.from(messagesMap.values()));
+
 watchEffect(() => {
   messages.value = Array.from(messagesMap.values());
 });

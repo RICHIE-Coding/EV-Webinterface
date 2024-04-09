@@ -80,6 +80,6 @@ export const MessageTypesISO20: MessageTypeISO20 = {
 };
 
 export type Message = {
-  name: { key: string; value: string };
+  key: { value: string };
   state: MessageState;
 };
