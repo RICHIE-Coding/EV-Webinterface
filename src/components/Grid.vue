@@ -25,6 +25,7 @@
 
 <style scoped>
 .box {
+  padding: 20px;
   border-radius: 7px;
   box-shadow: 0 0 10px 7px #89d8f0;
 }
