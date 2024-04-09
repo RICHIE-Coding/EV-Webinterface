@@ -31,7 +31,7 @@
       </template>
 
       <template v-slot:messagesequence>
-        <ISO2MessageSequence />
+        <ISO2MessageSequence :messagetype="MessageTypesISO2" />
       </template>
     </Grid>
   </div>
@@ -44,6 +44,7 @@ import InputField from "../components/InputField.vue";
 import Checkbox from "../components/Checkbox.vue"
 import Grid from "../components/Grid.vue";
 import ISO2MessageSequence from "../components/MessageSequences/ISO2Messagesequence.vue";
+import { MessageTypesISO2 } from "../models/ISO15118Messages";
 </script>
 
 <style scoped></style>

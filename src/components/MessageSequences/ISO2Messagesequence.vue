@@ -1,33 +1,36 @@
 <template>
-  <div class="text-center text-white text-4xl my-4">AC-Messagesequence</div>
-  <div class="text-white" v-for="message in messages" :key="message.name">
-    <div :class="getMessageColorClass(message.state)" class="text-white text-center mb-3 p-3 w-3/5 mx-auto">
-      {{ message.name }}
+  <div>
+    <div class="text-center text-white text-4xl my-4">AC-Messagesequence</div>
+    <div class="text-white" v-for="(message, index) in messages" :key="index">
+      <div :class="getMessageColorClass(message.state)" class="text-white text-center mb-3 p-3 w-3/5 mx-auto">
+        {{ message.name.value }}
+      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import { Message, MessageState, MessageNameISO2 } from '../../models/MessageState';
+import { ref, watchEffect } from 'vue';
+import { Message, MessageState, MessageTypeISO2, MessageTypeISO20 } from '../../models/ISO15118Messages';
 
-const messages = ref<Message[]>([
-  { name: MessageNameISO2.SLAC, state: MessageState.UNKNOWN },
-  { name: MessageNameISO2.SDP, state: MessageState.UNKNOWN },
-  { name: MessageNameISO2.SUPPORTED_APP_PROTOCOL, state: MessageState.UNKNOWN },
-  { name: MessageNameISO2.SESSION_SETUP, state: MessageState.UNKNOWN },
-  { name: MessageNameISO2.SERVICE_DISCOVERY, state: MessageState.UNKNOWN },
-  { name: MessageNameISO2.SERVICE_DETAIL, state: MessageState.UNKNOWN },
-  { name: MessageNameISO2.PAYMENT_SERVICE_SELECTION, state: MessageState.UNKNOWN },
-  { name: MessageNameISO2.CERTIFICATE_INSTALLATION, state: MessageState.UNKNOWN },
-  { name: MessageNameISO2.CERTIFICATE_UPDATE, state: MessageState.UNKNOWN },
-  { name: MessageNameISO2.PAYMENT_DETAILS, state: MessageState.UNKNOWN },
-  { name: MessageNameISO2.AUTHORISATION, state: MessageState.UNKNOWN },
-  { name: MessageNameISO2.CHARGE_PARAMETER_DISCOVERY, state: MessageState.UNKNOWN },
-  { name: MessageNameISO2.POWER_DELIVERY, state: MessageState.UNKNOWN },
-  { name: MessageNameISO2.METERING_RECIPT, state: MessageState.UNKNOWN },
-  { name: MessageNameISO2.SESSION_STOP, state: MessageState.UNKNOWN },
-]);
+const props = defineProps<{
+  messagetype: MessageTypeISO2 | MessageTypeISO20;
+}>()
+const messagesMap = new Map<string, Message>();
+
+for (const [key, value] of Object.entries(props.messagetype)) {
+  const message: Message = {
+    name: { key, value },
+    state: MessageState.UNKNOWN,
+  };
+  messagesMap.set(key, message);
+}
+
+
+const messages = ref<Message[]>(Array.from(messagesMap.values()));
+watchEffect(() => {
+  messages.value = Array.from(messagesMap.values());
+});
 
 const getMessageColorClass = (state: MessageState): string => {
   const colorMap: Record<MessageState, string> = {
